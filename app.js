@@ -12,6 +12,16 @@ const app = Vue.createApp({
             part : 2,
             version : 1.0
         }
+    },
+
+    methods : {
+        resetPart() {
+            // can't use part = 2
+            // need to use this keyword -> references the component itself
+            // part = 2;
+
+            this.part = 2;
+        }
     }
 
     // can render a manual template with html here but gets messy
