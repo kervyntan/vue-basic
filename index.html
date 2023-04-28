@@ -9,8 +9,15 @@
     <title>Vue Basics</title>
 </head>
 <body>
-    <p> This is an intro to Vue </p>
-    <div id="app"></div>
+    <h1> This is an intro to Vue </h1>
+    <div id="app">
+        <!-- 
+            double curly braces with the name of the
+             variable inside the return object of data()
+             in app.js
+        -->
+        <p> {{ title}} - {{ part }} - {{ version }} </p>
+    </div>
     
     <script src="app.js"></script>
     
