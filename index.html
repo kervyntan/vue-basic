@@ -17,6 +17,19 @@
              in app.js
         -->
         <p> {{ title}} - {{ part }} - {{ version }} </p>
+
+        <!-- 
+        Directives -> preceded by v- 
+        eg. v-on -> on a specific event, react to it
+         -->
+     
+         <button v-on:click="part++"> Increment "part" </button>
+         <button v-on:click="part=2"> Reset "part" </button>
+
+         <!-- 
+            Shorthand for v-on -> @ symbol
+         -->
+         <button @click="part++"> Increment "part" @version </button>
     </div>
     
     <script src="app.js"></script>

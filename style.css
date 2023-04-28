@@ -1,3 +1,8 @@
 p {
     font-weight : 500;
 }
+
+button {
+    margin-left : 30px;
+    margin-top : 10px;
+}
