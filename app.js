@@ -10,7 +10,9 @@ const app = Vue.createApp({
         return {
             title : "Vue Basics",
             part : 2,
-            version : 1.0
+            version : 1.0,
+            showBtns : true,
+            showVShow : true
         }
     },
 
