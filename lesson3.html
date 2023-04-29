@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <title>Vue Basics</title>
+</head>
+<body>
+    <h1> This is an intro to Vue </h1>
+    <div id="app">
+        <!-- Lesson 3 -->
+       
+        <!-- mouse events -->
+        <!-- 
+            To use e argument for event in the function, pass in $event as the first argument
+        -->
+        <div class="box" @mouseover="handleEvent($event, 5)"> mouseover (enter) </div>
+        <div class="box" @mouseleave="handleEvent"> Mouse leave </div>
+        <div class="box" @dblclick="handleEvent"> Double Click </div>
+        <div class="box" @mousemove="handleMousemove"> position of mouse - {{x}} - {{y}} </div>
+
+        <!-- 
+            Looping through a list using v-for
+        -->
+
+        <ul>
+            <li v-for="item in testList">
+                <h3> {{item.title}} </h3>
+                <p> {{item.author}} </p>
+            </li>
+        </ul>
+    </div>
+    
+    <script src="app.js"></script>
+    
+</body>
+</html>

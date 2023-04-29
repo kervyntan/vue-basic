@@ -12,17 +12,28 @@ const app = Vue.createApp({
             part : 2,
             version : 1.0,
             showBtns : true,
-            showVShow : true
+            showVShow : true,
+            x : 0,
+            y : 0,
+            testList : [
+                { title : "Vue basics 1", author : "Kervyn"},
+                { title : "Vue basics 2", author : "Kervyn"}
+            ]
         }
     },
 
     methods : {
-        resetPart() {
-            // can't use part = 2
-            // need to use this keyword -> references the component itself
-            // part = 2;
+        handleEvent(e, data) {
+            // console.log("Handle event");
+            console.log(e.target);
+            if (data) {
+                console.log(data);
+            }
+        },
 
-            this.part = 2;
+        handleMousemove(e) {
+            this.x = e.offsetX;
+            this.y = e.offsetY;
         }
     }
 
