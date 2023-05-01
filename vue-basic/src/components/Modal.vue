@@ -8,6 +8,11 @@
         <div class="modal" :class="{ active : isActive }">
             <p> Modal Content </p>
         </div>
+
+        <!-- Can also dynamically bind class to an array of classes-->
+        <!-- Toggle classes conditionally -->
+        <!-- Always applies class "additionalClass", but not "activeClass" -->
+        <div class="modal-dynamic" :class="[isActive ? activeClass : '', additionalClass]"></div>
     </div>
 </template>
 
@@ -16,7 +21,9 @@ export default {
     name : "Modal",
     data() {
         return {
-            isActive : true
+            isActive : true,
+            activeClass : 'active',
+            additionalClass : 'additional'
         }
     }
 }
