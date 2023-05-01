@@ -5,8 +5,10 @@
     -->
     <div class="backdrop">
         <!-- presence of class "active" depends on truthiness of isActive -->
-        <div class="modal" :class="{ active : isActive }">
-            <p> Modal Content </p>
+        <!-- Binding of styling-->
+        <div class="modal" :class="{ active : isActive }" 
+            :style="{fontSize : fontSize + 'px'}">
+            <p :style="{color : activeColor}"> Modal Content </p>
         </div>
 
         <!-- Can also dynamically bind class to an array of classes-->
@@ -22,6 +24,8 @@ export default {
     data() {
         return {
             isActive : true,
+            activeColor : "red",
+            fontSize : 15,
             activeClass : 'active',
             additionalClass : 'additional'
         }
