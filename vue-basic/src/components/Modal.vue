@@ -4,12 +4,28 @@
         when modal is open 
     -->
     <div class="backdrop">
-        <div class="modal">
+        <!-- presence of class "active" depends on truthiness of isActive -->
+        <div class="modal" :class="{ active : isActive }">
             <p> Modal Content </p>
         </div>
     </div>
 </template>
 
+<script>
+export default {
+    name : "Modal",
+    data() {
+        return {
+            isActive : true
+        }
+    }
+}
+</script>
+<!--
+    Scoped styles - limit the styles to be applied to this template only
+-->
+<!-- <style scoped>
+</style> -->
 <style>
 .modal {
     width : 400px;
