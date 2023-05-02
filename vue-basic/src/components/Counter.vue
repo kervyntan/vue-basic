@@ -1,8 +1,14 @@
 <template>
 <div class="counter"> {{ count }} </div>
 <button class="btn" @click="increment">Increment value</button>
-<p v-for="counter in listOfCounters"> This is my counter number -  {{ counter.number }} </p>
-<p> {{  message }} </p>
+<p className="message" v-show="isCountMoreThan10"> {{  message }} </p>
+
+    <div v-for="counter in listOfCounters"> 
+        <span> {{ convertToOffice }}</span>
+        <p> This is my counter number -  {{ counter.number }} </p>
+        <p> This is the type of the location - {{ counter.type }}</p>
+    </div>
+
 </template>
 
 <script>
@@ -12,6 +18,7 @@ export default {
         return {
             count : 0,
             message : `You have clicked this less than ${this.count} times`,
+            isCountMoreThan10 : false,
             listOfCounters : [
                 { 
                     type : "counter",
@@ -32,15 +39,29 @@ export default {
             })
         }
     },
+
+    computed : {
+        convertToOffice() {
+            return  this.count >= 10 
+                    ? this.listOfCounters = [{
+                        type : "office",
+                        number : 1
+                    }]
+                    : ""
+        }
+    },
+
     watch: {
         count: function(value) {
             // If "pageData" ever changes, then we will console log its new value.
             console.log(value);
-            if (value < 10) {
-                // need to use this to point to the correct instance
-                this.message = `You have clicked this less than ${value} times`;
-                // reference the value of count using the argument passed into the above function
-            } else {
+            // if (value < 10) {
+            //     // need to use this to point to the correct instance
+            //     this.message = `You have clicked this less than ${value} times`;
+            //     // reference the value of count using the argument passed into the above function
+            // } else {
+            if (value >= 10) {
+                this.isCountMoreThan10 = true;
                 this.message = `You have clicked this far too many times, ${value} times to be exact`;
             }
         }
@@ -49,5 +70,7 @@ export default {
 </script>
 
 <style>
-
+.message {
+    font-weight : 700;
+}
 </style>
