@@ -1,13 +1,15 @@
 <template>
-  <Modal />
+  <!-- <Modal /> -->
+  <Counter />
 </template>
 
 <script>
 import Modal from "../src/components/Modal.vue";
+import Counter from "../src/components/Counter.vue";
 
 export default {
   name : 'App',
-  components : { Modal },
+  components : { Modal, Counter },
   data() {
     return {
       // isActive : true
