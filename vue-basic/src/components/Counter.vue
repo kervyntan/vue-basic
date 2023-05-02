@@ -1,21 +1,35 @@
 <template>
 <div class="counter"> {{ count }} </div>
 <button class="btn" @click="increment">Increment value</button>
+<p v-for="counter in listOfCounters"> This is my counter number -  {{ counter.number }} </p>
 <p> {{  message }} </p>
 </template>
 
 <script>
 import { watch } from 'vue';
 export default {
-    data () {
+    data() {
         return {
             count : 0,
-            message : ""
+            message : `You have clicked this less than ${this.count} times`,
+            listOfCounters : [
+                { 
+                    type : "counter",
+                    number : 0
+                }
+            ]
+            // message : `You have clicked this less than 0 times`
         }
     },
     methods : {
         increment() {
             this.count++;
+            const currentCount = this.count;
+
+            this.listOfCounters.push({
+                type : "counter",
+                number : currentCount
+            })
         }
     },
     watch: {
