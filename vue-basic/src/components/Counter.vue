@@ -1,7 +1,10 @@
 <template>
+    <p> {{ buildingLocation }}</p>
+    <p> Available space : {{ space }} </p>
 <div class="counter"> {{ count }} </div>
-<button class="btn" @click="increment">Increment value</button>
-<p className="message" v-show="isCountMoreThan10"> {{  message }} </p>
+<Button :className="'btn'" :onClick="increment" :text="'Increment Value'" />
+<!-- <button class="btn" @click="increment">Increment value</button> -->
+<p ref="message" className="message" v-show="isCountMoreThan10"> {{ message }} </p>
 
     <div v-for="counter in listOfCounters"> 
         <span> {{ convertToOffice }}</span>
@@ -12,8 +15,13 @@
 </template>
 
 <script>
-import { watch } from 'vue';
+import Button from "../components/Button.vue";
+
 export default {
+    name : "Counter",
+
+    components : { Button },
+
     data() {
         return {
             count : 0,
@@ -28,6 +36,9 @@ export default {
             // message : `You have clicked this less than 0 times`
         }
     },
+
+    props : ['buildingLocation', 'space'],
+
     methods : {
         increment() {
             this.count++;
@@ -53,8 +64,9 @@ export default {
 
     watch: {
         count: function(value) {
-            // If "pageData" ever changes, then we will console log its new value.
+            // If "count" ever changes, then we will console log its new value.
             console.log(value);
+            console.log(this.$refs.message.innerHTML);
             // if (value < 10) {
             //     // need to use this to point to the correct instance
             //     this.message = `You have clicked this less than ${value} times`;
